@@ -1,0 +1,17 @@
+Include ~/.ssh/config.hosts
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
+
+Host *
+  IdentityAgent ~/.1password/agent.sock
+  ServerAliveInterval 60
+  UseKeychain no
+
+ForwardX11 no
+ForwardX11Trusted no
+ForwardAgent yes
+HashKnownHosts no
+GSSAPIAuthentication no
