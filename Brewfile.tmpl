@@ -1,0 +1,104 @@
+# frozen_string_literal: true
+
+brew 'asdf'                  # Multiple runtime version manager
+brew 'autoconf'              # Automatic configure script builder
+brew 'automake'              # Tool for generating GNU Standards-compliant Makefiles
+brew 'bash'                  # Bourne-Again SHell, UNIX command processor. Version shipped with MacOS is outdated
+brew 'bat'                   # Cat clone with syntax highlighting
+brew 'chezmoi'               # Dotfile manager
+brew 'curl'                  # Command line tool for transferring data with URL syntax
+brew 'direnv'                # Environment switcher for the shell
+brew 'eza'                   # Modern replacement for ls
+brew 'fd'                    # Better 'find'
+brew 'fish'                  # User-friendly command-line shell
+brew 'fzf'                   # Fuzzy Finder
+brew 'gcc'                   # GNU Compiler Collection
+brew 'gd'                    # GraphicsMagick
+brew 'gh'                    # GitHub CLI
+brew 'git-delta'             # Git diff
+brew 'git-secrets'           # Git secrets
+brew 'git'                   # Git CLI
+brew 'glib'                  # Core application building blocks for libraries and applications
+brew 'go'                    # Open source programming language
+brew 'grc'                   # Colorize logfiles and command output
+brew 'helm'                  # Kubernetes package manager
+brew 'htop'                  # Interactive process viewer
+brew 'jq'                    # Command-line JSON processor
+brew 'kubernetes-cli'        # Kubernetes command-line interface
+brew 'lefthook'              # Git hooks manager
+brew 'libevent'              # Asynchronous event library
+brew 'libffi'                # Foreign Function Interface library
+brew 'libgcrypt'             # Cryptographic library
+brew 'libgpg-error'          # Common error values for GnuPG components
+brew 'libidn2'               # International domain name library
+brew 'libksba'               # X.509 and CMS library
+brew 'libmpc'                # C library for multiple precision complex arithmetic
+brew 'libpng'                # Library for manipulating PNG images
+brew 'libssh2'               # C library implementing the SSH2 protocol
+brew 'libtasn1'              # ASN.1 structure parser library
+brew 'libtermkey'            # Library for processing keyboard entry from terminal-based programs
+brew 'libuv'                 # Multi-platform support library with a focus on asynchronous I/O
+brew 'libvterm'              # C99 library that implements a VT220 terminal emulator
+brew 'libxml2'               # GNOME XML library
+brew 'libyaml'               # YAML Parser
+brew 'make'                  # Utility for directing compilation
+brew 'neovim'                # Ambitious Vim-fork focused on extensibility and usability
+brew 'openssl'               # SSL/TLS cryptography library
+brew 'p7zip'                 # 7-Zip (high compression file archiver)
+brew 'pre-commit'            # Framework for managing multi-language pre-commit hooks
+brew 'shellcheck'            # Static analysis and lint tool for shell scripts
+brew 'starship'              # Cross-shell prompt
+brew 'tflint'                # Terraform linter
+brew 'tmux'                  # Terminal multiplexer
+brew 'vault'                 # Tool for securely accessing secrets
+brew 'vim'                   # Highly configurable text editor
+brew 'vnstat'                # Network traffic monitor
+brew 'wget'                  # Internet file retriever
+brew 'whalebrew'             # Homebrew, but with Docker images
+brew 'yamllint'              # Linter for YAML files
+brew 'yq'                    # Process YAML, JSON, XML, CSV and properties documents
+brew 'zlib'                  # General-purpose data compression library
+brew 'zoxide'                # Smarter cd command
+
+{{- if eq .chezmoi.os "darwin" }}
+brew 'docker-buildx' # Docker CLI plugin for extended build capabilities
+brew 'docker-credential-helper' # Credential helper for Docker
+brew 'docker'                # Container runtime and ecosystem
+brew 'mas'                   # Mac App Store command-line interface
+
+cask '1kc-razer'             # Razer keyboard customization for macOS
+cask '1password-cli'         # Command-line interface for 1Password
+cask '1password'             # Password manager
+cask 'amazon-workspaces'     # Remote desktop application
+cask 'discord', greedy: true # Voice and text chat app
+cask 'firefox', greedy: true # Web browser
+cask 'font-cascadia-mono'    # Monospaced font
+cask 'font-hack-nerd-font'   # Developer font with icons
+cask 'ghostty'               # Modern terminal emulator
+cask 'gitkraken'             # Git GUI client
+cask 'google-chrome'         # Web browser
+cask 'google-drive'          # File storage service
+cask 'gpg-suite'             # GPG encryption tools
+cask 'lens'                  # Kubernetes IDE
+cask 'microsoft-teams'       # Team collaboration software
+cask 'readdle-spark', greedy: true # Email client
+cask 'shureplus-motiv'       # Audio interface control software
+cask 'slack', greedy: true   # Team communication and collaboration
+cask 'sonos', greedy: true   # Controller for Sonos speakers
+cask 'steam'                 # Game distribution service
+cask 'tabby'                 # Modern terminal
+cask 'telegram', greedy: true # Messaging app
+cask 'visual-studio-code', greedy: true # Code editor
+cask 'whatsapp', greedy: true # Messaging app
+cask 'zoom', greedy: true # Video conferencing
+mas 'HP Smart for Desktop', id: 1_474_276_998 # HP printer utility
+{{- end }}
+
+## PODMAN
+{{- if eq .chezmoi.os "linux" }}
+brew 'aws-vault'             # Securely store and access AWS credentials
+brew 'awscli'                # Official Amazon AWS command-line interface
+brew 'glab'                  # GitLab CLI
+brew 'podman'                # Daemonless container engine
+brew 'podman-compose'        # Docker Compose replacement for Podman
+{{- end }}
