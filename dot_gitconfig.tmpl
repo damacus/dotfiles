@@ -1,0 +1,45 @@
+[include]
+	path = /Users/damacus/.gitconfig.local
+
+[dotfiles]
+	managed = true
+
+[credential]
+{{- if eq .chezmoi.os "darwin" }}
+	helper = osxkeychain
+{{- end }}
+
+[core]
+	pager = delta
+	excludesFile = ~/.gitignore
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	line-numbers = true
+	decorations = true
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[github]
+	user = damacus
+
+[user]
+  name = Dan Webb
+  email = dan.webb@damacus.io
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCLr7NoB34qERAAJNLHKgOy9EJ40smz4F9HhU5d5i8s
+
+[gpg]
+  format = ssh
+{{- if eq .chezmoi.os "darwin" }}
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
+
+[commit]
+  gpgsign = true
