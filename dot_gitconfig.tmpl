@@ -43,3 +43,78 @@
 
 [commit]
   gpgsign = true
+
+# vi: ft=gitconfig
+
+[alias]
+	co = checkout
+	count = shortlog -sn
+	g = grep --break --heading --line-number
+	gi = grep --break --heading --line-number -i
+	changed = show --pretty=\"format:\" --name-only
+	fm = fetch-merge
+	please = push --force-with-lease
+	commit = commit -s
+	commend = commit -s --amend --no-edit
+	lt = log --tags --decorate --simplify-by-decoration --oneline
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[core]
+	excludesfile = ~/.gitignore
+	editor = nvim
+	compression = -1
+	autocrlf = input
+	whitespace = trailing-space,space-before-tab
+	precomposeunicode = true
+[advice]
+	addEmptyPathspec = false
+[gpg]
+	program = gpg
+[apply]
+	whitespace = nowarn
+[help]
+	autocorrect = 1
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[push]
+	autoSetupRemote = true
+	default = simple
+[submodule]
+	fetchJobs = 4
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[log]
+	showSignature = false
+[pull]
+    ff = only
+[init]
+    defaultBranch = main
+[format]
+	signOff = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
+[merge]
+    tool = nvimmerge
+[mergetool "nvimmerge"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[rerere]
+	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
