@@ -8,7 +8,9 @@ Host github.com
 Host *
   IdentityAgent ~/.1password/agent.sock
   ServerAliveInterval 60
+  {{- if eq .chezmoi.os "darwin" }}
   UseKeychain no
+  {{- end }}
 
 ForwardX11 no
 ForwardX11Trusted no
