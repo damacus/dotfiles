@@ -1,6 +1,0 @@
-[[ssh-keys]]
-{{- if eq .chezmoi.os "darwin" }}
-vault = "Personal"
-{{ else if eq .chezmoi.os "linux" }}
-vault = "Work"
-{{- end }}
