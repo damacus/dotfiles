@@ -17,7 +17,7 @@ if type -q asdf
   set --erase _asdf_shims
 end
 
-if type -a task
+if type -q task
   task --completion fish | source
 end
 
