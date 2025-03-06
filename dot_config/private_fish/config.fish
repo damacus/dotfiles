@@ -17,6 +17,10 @@ if type -q asdf
   set --erase _asdf_shims
 end
 
+if type -a task
+  task --completion fish | source
+end
+
 fish_add_path -p ~/.cargo/bin/
 
 abbr -a g git
