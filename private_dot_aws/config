@@ -1,0 +1,5 @@
+{{ if not (contains "MBP" .chezmoi.hostname) }}
+{{ (index (onepassword "jq7ihhvqw6mfkgafe4ivw7vyty").fields 1).value}}
+{{ else }}
+{{ (index (onepassword "jq7ihhvqw6mfkgafe4ivw7vyty").fields 2).value}}
+{{ end }}

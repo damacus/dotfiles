@@ -50,6 +50,7 @@ abbr -a gsms 'git switch (git-main-branch); and git-sync'
 abbr -a gst 'git status'
 abbr -a gss 'git status -sb'
 abbr -a ggp 'git push origin'
+abbr -a grhh 'git reset --hard HEAD'
 
 abbr -a vim nvim
 abbr -a cat bat
