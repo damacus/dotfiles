@@ -56,11 +56,12 @@ abbr -a vim nvim
 abbr -a cat bat
 abbr -a l 'eza -lh --icons'
 abbr -a ll 'eza -l --icons'
-abbr -a ug update_git
+abbr -a ug 'git checkout main && git pull && git-sync'
 abbr -a brew-update 'brew update && brew upgrade && brew cleanup'
 abbr -a d docker
 
 # Kubernetes
+abbr -a k kubectl
 abbr -a kn kubens
 abbr -a knrunning 'kubectl get pods --field-selector=status.phase!=Running'
 abbr -a kx kubectx
@@ -68,6 +69,8 @@ abbr -a kdrain 'kubectl drain --ignore-daemonsets --delete-local-data'
 abbr -a kdelete 'kubectl delete'
 abbr -a kdel 'kubectl delete'
 abbr -a kgp 'kubectl get pods'
+abbr -a ke 'kubectl edit'
+abbr -a kga 'kubectl get all'
 abbr -a cnpg 'kubectl cnpg'
 
 if test -d terraform
@@ -78,12 +81,14 @@ if test -d terraform
 end
 
 if type -q kitchen
-    abbr -a kitchen kitchen
-    abbr -a kl 'kitchen list'
-    abbr -a kt 'kitchen test'
     abbr -a kc 'kitchen converge'
+    abbr -a kcr 'kitchen create'
     abbr -a kd 'kitchen destroy'
+    abbr -a kl 'kitchen list'
     abbr -a kli 'kitchen login'
+    abbr -a kt 'kitchen test'
     abbr -a kv 'kitchen verify'
+    abbr -a dokken 'set -xU KITCHEN_LOCAL_YAML kitchen.dokken.yml'
     abbr -a no_dokken 'set -e KITCHEN_LOCAL_YAML'
+    abbr -a karm 'set -xU KITCHEN_LOCAL_YAML kitchen.arm.yml'
 end
