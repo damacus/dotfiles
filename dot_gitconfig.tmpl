@@ -7,6 +7,9 @@
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
 	helper = osxkeychain
+{{ else }}
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = secretservice
 {{- end }}
 
 [core]

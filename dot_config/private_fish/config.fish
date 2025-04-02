@@ -1,6 +1,11 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    source /Users/damacus/.config/op/plugins.sh
+	if test -d /Users/damacus/.config/op
+		source /Users/damacus/.config/op/plugins.sh
+	end
+	{{- if eq .chezmoi.os "linux" }}
+     eval $(op signin)
+	{{- end }}
     fzf --fish | source
 end
 
