@@ -33,7 +33,7 @@
 {{- if eq .chezmoi.os "linux" }}
 [user]
   name = Dan Webb
-  email = {{- onepasswordRead "op://Work/7kelgn6tvjdr3jbwqp3y4tgnoi/email" -}}
+  email = {{ onepasswordRead "op://Work/7kelgn6tvjdr3jbwqp3y4tgnoi/email" -}}
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
