@@ -50,7 +50,8 @@
   program = gpg
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
+[tag]
+  gpgsign = true
 [commit]
   gpgsign = true
 {{- end }}
@@ -92,10 +93,6 @@
   default = simple
 [submodule]
   fetchJobs = 4
-[commit]
-  gpgsign = true
-[tag]
-  gpgsign = true
 [log]
   showSignature = false
 [pull]
