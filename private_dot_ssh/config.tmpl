@@ -6,6 +6,7 @@ Host github.com
 Host *
   IdentityAgent ~/.1password/agent.sock
   ServerAliveInterval 60
+  LogLevel error
   {{- if eq .chezmoi.os "darwin" }}
   UseKeychain no
   {{- end }}
