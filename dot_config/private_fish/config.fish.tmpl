@@ -1,11 +1,9 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-	if test -d /Users/damacus/.config/op
-		source /Users/damacus/.config/op/plugins.sh
-	end
-	{{- if eq .chezmoi.os "linux" }}
-     eval $(op signin)
-	{{- end }}
+    if test -d $HOME/.config/op
+        source $HOME/.config/op/plugins.sh
+    end
+    eval $(op signin)
     fzf --fish | source
 end
 
@@ -26,13 +24,13 @@ if type -q task
     task --completion fish | source
 end
 
-fish_add_path -p ~/.cargo/bin/
+fish_add_path -p $HOME/.cargo/bin/
 
-if test -d /Users/damacus/.codeium/windsurf/bin
-    fish_add_path /Users/damacus/.codeium/windsurf/bin
+if test -d $HOME/.codeium/windsurf/bin
+    fish_add_path $HOME/.codeium/windsurf/bin
 end
 
-# Git
+# Git (common for all platforms)
 abbr -a g git
 abbr -a gl 'git pull --prune'
 abbr -a glg "git log --graph --decorate --oneline --abbrev-commit"
@@ -57,34 +55,40 @@ abbr -a gss 'git status -sb'
 abbr -a ggp 'git push origin'
 abbr -a grhh 'git reset --hard HEAD'
 
+# Common aliases
 abbr -a vim nvim
 abbr -a cat bat
 abbr -a l 'eza -lh --icons'
 abbr -a ll 'eza -l --icons'
 abbr -a ug 'git checkout main && git pull && git-sync'
-abbr -a brew-update 'brew update && brew upgrade && brew cleanup'
 abbr -a d docker
 
-# Kubernetes
-abbr -a k kubectl
-abbr -a kn kubens
-abbr -a knrunning 'kubectl get pods --field-selector=status.phase!=Running'
-abbr -a kx kubectx
-abbr -a kdrain 'kubectl drain --ignore-daemonsets --delete-local-data'
-abbr -a kdelete 'kubectl delete'
-abbr -a kdel 'kubectl delete'
-abbr -a kgp 'kubectl get pods'
-abbr -a ke 'kubectl edit'
-abbr -a kga 'kubectl get all'
-abbr -a cnpg 'kubectl cnpg'
+abbr -a brew-update 'brew update && brew upgrade && brew cleanup'
 
-if test -d terraform
+# Kubernetes
+if type -q kubectl
+    abbr -a k kubectl
+    abbr -a kn kubens
+    abbr -a knrunning 'kubectl get pods --field-selector=status.phase!=Running'
+    abbr -a kx kubectx
+    abbr -a kdrain 'kubectl drain --ignore-daemonsets --delete-local-data'
+    abbr -a kdelete 'kubectl dele   te'
+    abbr -a kdel 'kubectl delete'
+    abbr -a kgp 'kubectl get pods'
+    abbr -a ke 'kubectl edit'
+    abbr -a kga 'kubectl get all'
+    abbr -a cnpg 'kubectl cnpg'
+end
+
+# Terraform
+if type -q terraform
     abbr -a tf terraform
     abbr -a tfp 'terraform plan'
     abbr -a tfa 'terraform apply'
     abbr -a tfi 'terraform init'
 end
 
+# Kitchen
 if type -q kitchen
     abbr -a kc 'kitchen converge'
     abbr -a kcr 'kitchen create'
