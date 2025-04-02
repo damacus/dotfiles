@@ -30,6 +30,11 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
 
+{{- if eq .chezmoi.os "linux" }}
+[user]
+  name = Dan Webb
+  email = {{- onepasswordRead "op://Work/7kelgn6tvjdr3jbwqp3y4tgnoi/email" -}}
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 [github]
