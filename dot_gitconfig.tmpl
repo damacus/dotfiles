@@ -122,3 +122,8 @@
   patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
   allowed = AKIAIOSFODNN7EXAMPLE
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+[credential "{{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/url" }}"]
+  gitLabDevClientId = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientID" }}
+  gitLabDevClientSecret = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientSecret" }}
+  provider = gitLab

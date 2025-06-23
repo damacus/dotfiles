@@ -1,4 +1,4 @@
-{{- if not (contains "MBP" .chezmoi.hostname) }}
+{{- if eq .chezmoi.os "linux" }}
 {{ (index (onepassword "n2gfi3txfrowm5pmo35lhz4fgq").fields 1).value}}
 {{ else }}
 {{ (index (onepassword "n2gfi3txfrowm5pmo35lhz4fgq").fields 2).value}}
