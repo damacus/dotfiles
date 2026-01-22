@@ -3,21 +3,13 @@ if status is-interactive
     if test -d $HOME/.config/op
         source $HOME/.config/op/plugins.sh
     end
-    eval $(op signin)
+
     fzf --fish | source
+    /opt/homebrew/bin/mise activate fish | source
 end
 
 if type -q direnv
     direnv hook fish | source
-end
-
-if type -q asdf
-    fish_add_path --prepend "$HOME/.asdf/shims"
-
-    if not contains $_asdf_shims $PATH
-        set -gx --prepend PATH $_asdf_shims
-    end
-    set --erase _asdf_shims
 end
 
 if type -q task

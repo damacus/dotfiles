@@ -1,0 +1,8 @@
+[tools]
+go = "latest"
+terraform = "latest"
+yamllint = "latest"
+terraform-ls = "latest"
+node = "latest"
+ruby = "latest"
+python = "latest"
