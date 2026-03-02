@@ -1,12 +1,12 @@
 function git-fetch-merge
-    set remote (git remote | grep upstream)
-    set branch $argv[1]
+    set -l remote (git remote | grep upstream)
+    set -l branch $argv[1]
 
-    if test -z $remote
+    if test -z "$remote"
         set remote origin
     end
 
-    if test -z $branch
+    if test -z "$branch"
         set branch (git-main-branch)
     end
 

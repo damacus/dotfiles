@@ -1,3 +1,3 @@
 function git-find
-    git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+    git symbolic-ref refs/remotes/origin/HEAD | string replace -r '^refs/remotes/origin/' ''
 end

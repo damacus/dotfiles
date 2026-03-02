@@ -1,7 +1,6 @@
 # vi: ft=gitconfig
 [include]
   path = /Users/damacus/.gitconfig.local
-
 [dotfiles]
   managed = true
 
@@ -16,14 +15,11 @@
 [core]
   pager = delta
   excludesFile = ~/.gitignore
-
 [interactive]
   diffFilter = delta --color-only
-
 [delta]
   line-numbers = true
   decorations = true
-
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
@@ -34,17 +30,19 @@
 [user]
   name = Dan Webb
   email = {{ onepasswordRead "op://Work/7kelgn6tvjdr3jbwqp3y4tgnoi/email" -}}
+[credential "{{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/url" }}"]
+  gitLabDevClientId = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientID" }}
+  gitLabDevClientSecret = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientSecret" }}
+  provider = gitLab
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 [github]
   user = damacus
-
 [user]
   name = Dan Webb
   email = dan.webb@damacus.io
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCLr7NoB34qERAAJNLHKgOy9EJ40smz4F9HhU5d5i8s
-
 [gpg]
   format = ssh
   program = gpg
@@ -122,8 +120,3 @@
   patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
   allowed = AKIAIOSFODNN7EXAMPLE
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-
-[credential "{{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/url" }}"]
-  gitLabDevClientId = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientID" }}
-  gitLabDevClientSecret = {{ onepasswordRead "op://Work/y2xaorsdmk7wg6rlircd5ofetu/clientSecret" }}
-  provider = gitLab

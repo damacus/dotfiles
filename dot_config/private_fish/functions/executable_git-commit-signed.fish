@@ -1,19 +1,15 @@
-#!/usr/bin/env fish
 # git-commit-signed.fish
 # Multi-line signed commit with GPG timeout fallback
 #
 # Usage:
-#   fish scripts/git-commit-signed.fish "feat: add feature" "- Detail 1" "- Detail 2"
-#
-# Or source and call:
-#   source scripts/git-commit-signed.fish
 #   git_commit_signed "feat: add feature" "- Detail 1" "- Detail 2"
 #
 # Environment variables:
 #   GPG_TIMEOUT - Timeout in seconds for GPG signing (default: 10)
 
 function git_commit_signed --description "Create signed commit with GPG timeout fallback"
-    set -l gpg_timeout (set -q GPG_TIMEOUT; and echo $GPG_TIMEOUT; or echo 10)
+    set -l gpg_timeout 10
+    set -q GPG_TIMEOUT; and set gpg_timeout $GPG_TIMEOUT
 
     if test (count $argv) -eq 0
         echo "Usage: git_commit_signed <title> [body lines...]"
@@ -113,9 +109,4 @@ function git_commit_push_signed --description "Stage all, commit signed, and pus
     else
         return 1
     end
-end
-
-# If script is run directly (not sourced), execute with arguments
-if test (basename (status filename)) = "git-commit-signed.fish"
-    git_commit_signed $argv
 end

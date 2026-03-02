@@ -1,7 +1,7 @@
 function git-sync
-    set branch (git symbolic-ref --short HEAD)
-    set remote (git remote | grep upstream)
-    if test -z $remote
+    set -l branch (git symbolic-ref --short HEAD)
+    set -l remote (git remote | grep upstream)
+    if test -z "$remote"
         set remote origin
     end
 
