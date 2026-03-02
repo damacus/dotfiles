@@ -21,3 +21,6 @@ coverage.txt
 .direnv
 main.tfvars
 *.tfvars.json
+{{- if eq .chezmoi.os "linux" }}
+AGENTS.md
+{{- end}}
